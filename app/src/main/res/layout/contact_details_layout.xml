@@ -93,7 +93,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/btn_circle"
                     android:onClick="CallInfo"
-                    android:text="Call" />
+                    android:text="@string/call" />
 
                 <Button
                     android:id="@+id/btn_ShareIdDetalle"
@@ -103,7 +103,7 @@
                     android:layout_marginTop="15dp"
                     android:background="@drawable/btn_circle"
                     android:onClick="ShareInfo"
-                    android:text="SHARE" />
+                    android:text="@string/share" />
 
             </LinearLayout>
 

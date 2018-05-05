@@ -30,68 +30,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Name" />
+                android:text="@string/name" />
 
             <EditText
                 android:id="@+id/nameAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Name" />
+                android:hint="@string/enter_name" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Enter LastName" />
+                android:text="@string/enter_lastname" />
 
             <EditText
                 android:id="@+id/lasnameAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="LastName" />
+                android:hint="@string/lastname" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="E-Mail" />
+                android:text="@string/e_mail" />
 
             <EditText
                 android:id="@+id/mailAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter E-Mail" />
+                android:hint="@string/enter_e_mail" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Address" />
+                android:text="@string/address" />
 
             <EditText
                 android:id="@+id/addressAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Address" />
+                android:hint="@string/enter_address" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Phone" />
+                android:text="@string/phone" />
 
             <EditText
                 android:id="@+id/phoneAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Phone" />
+                android:hint="@string/enter_phone" />
 
             <Button
                 android:id="@+id/buttonAdd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="ADD" />
+                android:text="@string/add" />
 
         </LinearLayout>
 

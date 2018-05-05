@@ -3,7 +3,11 @@ package com.example.john.parcial;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,14 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
     ArrayList<Contacto> listaContacto;
     RecyclerView recyclerContacto;
     AdaptadorContactos adapter;
-
     private static final int Code = 0;
 
     @Override
@@ -32,11 +36,16 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         recyclerContacto = findViewById(R.id.recyclerId);
         recyclerContacto.setLayoutManager(new LinearLayoutManager(this));
 
+        if (savedInstanceState == null || !savedInstanceState.containsKey("key")){
+            cargarContactos();
+        }
+        else{
+            listaContacto = savedInstanceState.getParcelableArrayList("key");
+        }
 
-        llenarPersonajes();
-        cargarContactos();
         adapter = new AdaptadorContactos(listaContacto, this);
         recyclerContacto.setAdapter(adapter);
+
     }
 
     //CARGAR CONTACTOS DEL CELULAR
@@ -84,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+    //HAY QUE GUARDAR EL ESTADO
     //PETICION
     //AGREGAR UN CONTACTO
     public void agregarContacto(View view) {
@@ -104,6 +114,12 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             String telefono = data.getStringExtra("KEY5");
             listaContacto.add(new Contacto(nombre, apellido, correo, direccion, telefono, R.drawable.perfil));
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("key",listaContacto);
+        super.onSaveInstanceState(outState);
     }
 
     //METODO LLENAR CONTACTOS DE MODO QUEMADO
@@ -147,11 +163,5 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
         adapter.setFilter(newList);
         return true;
-    }
-
-    //GUARDAR EL ESTADO
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 }

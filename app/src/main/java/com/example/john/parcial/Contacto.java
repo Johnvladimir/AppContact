@@ -1,6 +1,9 @@
 package com.example.john.parcial;
 
-public class Contacto {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Contacto implements Parcelable{
 
     private String Nombre;
     private String Apellido;
@@ -22,6 +25,27 @@ public class Contacto {
         this.Telefono = telefono;
         this.foto = foto;
     }
+
+    protected Contacto(Parcel in) {
+        Nombre = in.readString();
+        Apellido = in.readString();
+        correo = in.readString();
+        direccion = in.readString();
+        Telefono = in.readString();
+        foto = in.readInt();
+    }
+
+    public static final Creator<Contacto> CREATOR = new Creator<Contacto>() {
+        @Override
+        public Contacto createFromParcel(Parcel in) {
+            return new Contacto(in);
+        }
+
+        @Override
+        public Contacto[] newArray(int size) {
+            return new Contacto[size];
+        }
+    };
 
     public String getNombre() {
         return Nombre;
@@ -69,5 +93,20 @@ public class Contacto {
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(Nombre);
+        dest.writeString(Apellido);
+        dest.writeString(correo);
+        dest.writeString(direccion);
+        dest.writeString(Telefono);
+        dest.writeInt(foto);
     }
 }
