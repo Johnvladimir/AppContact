@@ -2,7 +2,6 @@ package com.example.john.parcial;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Parcelable;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -33,7 +32,6 @@ public class Add_Contact extends AppCompatActivity {
         btn_Add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 String nombre = Name.getText().toString();
                 String apellido = LastName.getText().toString();
@@ -69,7 +67,7 @@ public class Add_Contact extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             Uri path = data.getData();
-           img.setImageURI(path);
+            img.setImageURI(path);
         }
     }
 }

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,14 @@ public class AdaptadorContactos extends RecyclerView.Adapter<AdaptadorContactos.
         holder.etiNombre.setText(listaContactos.get(position).getNombre());
         holder.etiApellido.setText(listaContactos.get(position).getApellido());
         holder.foto.setImageResource(listaContactos.get(position).getFoto());
+
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast toast = Toast.makeText(ctx, "No esta implementado Favoritos", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
     }
 
     @Override
@@ -50,6 +59,7 @@ public class AdaptadorContactos extends RecyclerView.Adapter<AdaptadorContactos.
         ImageView foto;
         ArrayList<Contacto> contactos;
         Context ctx;
+        CheckBox checkBox;
 
         public ViewHolderContactos(View itemView, Context ctx, ArrayList<Contacto> contactos) {
             super(itemView);
@@ -59,6 +69,7 @@ public class AdaptadorContactos extends RecyclerView.Adapter<AdaptadorContactos.
             etiNombre = itemView.findViewById(R.id.idNombre);
             etiApellido = itemView.findViewById(R.id.idApellido);
             foto = itemView.findViewById(R.id.idImagen);
+            checkBox = itemView.findViewById(R.id.fav);
         }
 
         @Override

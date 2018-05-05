@@ -3,11 +3,7 @@ package com.example.john.parcial;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
-import android.os.Parcelable;
-import android.os.PersistableBundle;
 import android.provider.ContactsContract;
-import android.provider.MediaStore;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,10 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
 
     ArrayList<Contacto> listaContacto;
     RecyclerView recyclerContacto;
@@ -32,20 +27,19 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         listaContacto = new ArrayList<>();
         recyclerContacto = findViewById(R.id.recyclerId);
         recyclerContacto.setLayoutManager(new LinearLayoutManager(this));
 
-        if (savedInstanceState == null || !savedInstanceState.containsKey("key")){
+        if (savedInstanceState == null || !savedInstanceState.containsKey("key")) {
             cargarContactos();
-        }
-        else{
+        } else {
             listaContacto = savedInstanceState.getParcelableArrayList("key");
         }
 
         adapter = new AdaptadorContactos(listaContacto, this);
         recyclerContacto.setAdapter(adapter);
-
     }
 
     //CARGAR CONTACTOS DEL CELULAR
@@ -93,12 +87,10 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
-    //HAY QUE GUARDAR EL ESTADO
     //PETICION
     //AGREGAR UN CONTACTO
     public void agregarContacto(View view) {
         Intent intent = new Intent(this, Add_Contact.class);
-
         startActivityForResult(intent, Code);
     }
 
@@ -118,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putParcelableArrayList("key",listaContacto);
+        outState.putParcelableArrayList("key", listaContacto);
         super.onSaveInstanceState(outState);
     }
 

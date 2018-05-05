@@ -23,8 +23,6 @@ public class ContactDtails extends AppCompatActivity {
     Button btn_call, btn_share;
     String getnombre, getapellido, getcorreo, getdireccion, gettelefono;
 
-    private static Uri imageUri = null;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,5 +87,15 @@ public class ContactDtails extends AppCompatActivity {
             return;
         }
         view.getContext().startActivity(intent);
+    }
+
+    public void EditContact(View view) {
+        Intent intent = new Intent(ContactDtails.this, EditContact.class);
+        intent.putExtra("nombre", getnombre);
+        intent.putExtra("apellido", getapellido);
+        intent.putExtra("correo", getcorreo);
+        intent.putExtra("direccion", getdireccion);
+        intent.putExtra("telefono", gettelefono);
+        startActivity(intent);
     }
 }
