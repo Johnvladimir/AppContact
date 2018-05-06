@@ -1,13 +1,13 @@
 <resources>
-    <string name="app_name">Parcial</string>
+    <string name="app_name">App Contact</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_contac_dtails">ContacDtails</string>
     <string name="name">Name</string>
     <string name="enter_name">Enter Name</string>
-    <string name="enter_lastname">Enter LastName</string>
-    <string name="lastname">LastName</string>
+    <string name="enter_lastname">LastName</string>
+    <string name="lastname">Enter LastName</string>
     <string name="e_mail">E-Mail</string>
     <string name="enter_e_mail">Enter E-Mail</string>
     <string name="address">Address</string>
@@ -17,4 +17,5 @@
     <string name="add">ADD</string>
     <string name="call">Call</string>
     <string name="share">SHARE</string>
+    <string name="update">Update</string>
 </resources>

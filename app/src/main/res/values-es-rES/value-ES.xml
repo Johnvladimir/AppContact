@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">App Contact</string>
+    <string name="name">Nombre</string>
+    <string name="enter_name">Ingrese Nombre</string>
+    <string name="enter_lastname">Apellido</string>
+    <string name="lastname">Ingrese Apellido</string>
+    <string name="e_mail">Correo</string>
+    <string name="enter_e_mail">Ingrese Correo</string>
+    <string name="address">Dirección</string>
+    <string name="enter_address">Ingrese Dirección</string>
+    <string name="phone">Teléfono</string>
+    <string name="enter_phone">Ingrese Teléfono</string>
+    <string name="add">Agregar</string>
+    <string name="call">Llamar</string>
+    <string name="share">Compartir</string>
+    <string name="update">Actualizar</string>
+</resources>
